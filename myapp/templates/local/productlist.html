@@ -1,0 +1,67 @@
+{% extends 'local/base.html' %}
+{% load static %}
+{% block css %}
+<!-- Datatables -->
+<link href="{% static 'local/js/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Products</h2>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <p class="text-muted font-13 m-b-30">
+                        </p>
+                        <table id="datatable" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                {% for product in products%}
+                                <tr>
+                                    <td><img src="/media/{{product.image}}" alt="{{product.image}}" class="image img-responsive" style="width: 220px; height: 220px;"></td>
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.category}}</td>
+                                    <td>₹{{product.price}}</td>
+                                    <td>{{product.quantity}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                                        <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                    </td>
+                                    
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- /page content -->
+
+{% block js %}
+<!-- Datatables -->
+<script src="{% static 'local/js/vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'local/js/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+{% endblock %}

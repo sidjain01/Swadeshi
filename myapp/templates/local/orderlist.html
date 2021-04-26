@@ -1,0 +1,64 @@
+{% extends 'local/base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block css %}
+<!-- Datatables -->
+<link href="{% static 'local/js/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Orders <small></small></h2>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <p class="text-muted font-13 m-b-30">
+                        </p>
+                        <table id="datatable" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="column-title">Product </th>
+                                    <th class="column-title">Product Name</th>
+                                    <th class="column-title">Price </th>
+                                    <th class="column-title">Quantity</th>
+                                    <th class="column-title">Total Amount </th>
+                                    <th class="column-title no-link last"><span class="nobr">Status</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                {% for orderItem in orderItems %}
+                                <tr>
+                                    <td><img src="{{orderItem.prod_id.image.url}}" alt="" class="image img-responsive" style="width: 220px; height: 220px;"></td>
+                                    <td style="font-size: 20px" class=" ">{{orderItem.prod_id.name}}</td>
+                                    <td style="font-size: 20px" class=" ">₹{{orderItem.prod_id.price}}</td>
+                                    <td style="font-size: 20px" class=" ">{{orderItem.quantity}}</td>
+                                    <td style="font-size: 20px" class=" ">₹{{ orderItem.prod_id.price|multiply:orderItem.quantity}}</td>
+                                    <td style="font-size: 20px" class=" ">Paid</td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- /page content -->
+
+{% block js %}
+<!-- Datatables -->
+<script src="{% static 'local/js/vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'local/js/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+{% endblock %}

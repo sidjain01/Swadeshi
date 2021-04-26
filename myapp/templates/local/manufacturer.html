@@ -1,0 +1,94 @@
+{% extends 'local/base.html' %} 
+
+{% block body %}
+ <!-- page content -->
+ <div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <form class="form-horizontal form-label-left" method="post" action="{% url 'manu_register' %}"
+                        enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <span class="section">Create Manufacturer</span>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 input-group ">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" 
+                                           data-validate-length-range="2" autocomplete="off"
+                                           name="name" placeholder="Name" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Company Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 input-group ">
+                                    <input id="company_name" class="form-control col-md-7 col-xs-12" 
+                                           data-validate-length-range="2" autocomplete="off"
+                                           name="company_name" placeholder="Company Name" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 input-group ">
+                                    <input type="email" id="email" required="required" placeholder="Email" name="email" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">Mobile<span class="required">*</span>
+                                </label>
+                                <div class='col-md-6 col-sm-6 col-xs-12 input-group '>
+                                    <input type='text' id="mobile" name="mobile" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address 
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 input-group ">
+                                    <textarea id="address" rows="3" name="address" class="form-control col-md-7 col-xs-12" placeholder="Residence Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nativePlace">Pincode
+                                </label>
+                                <div class='col-md-6 col-sm-6 col-xs-12 input-group '>
+                                    <input type='text' id="pincode" name="pincode" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nativePlace">Aadhar
+                                </label>
+                                <div class='col-md-6 col-sm-6 col-xs-12 input-group '>
+                                    <input type='text' id="aadhar" name="aadhar" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="image">Image
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 input-group">
+                                    <input type="file"  id="image" name="image" class="form-control col-md-7 col-xs-12" 
+                                           accept="image/*" >
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button id="send" type="submit"  class="btn btn-success">Submit</button>
+                                    <!--                                <a class="btn btn-default submit" href="login.html">Submit</a>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- /page content -->
